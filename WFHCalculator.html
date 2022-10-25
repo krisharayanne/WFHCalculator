@@ -1,0 +1,44 @@
+<label for="wfh">Date to Check:</label>
+<input type="date" id="wfh" name="wfh">
+
+
+<script>
+document.getElementById("wfh").addEventListener("change", function() {
+    var input = this.value;
+    var dateEntered = new Date(input);
+    if(dateEntered.getDay()!="5") { // start if statement 1
+        alert("You can only check for Fridays!");
+    } // end if statement 1
+    else { // start else statement 1
+    console.log(input); //e.g. 2015-11-13
+    var year = dateEntered.getFullYear();
+    var month = dateEntered.getMonth()+1;
+    var day = dateEntered.getDate();
+    // var year = input.substring(0,input.indexOf("-"));
+    // var month = input.substring(input.indexOf("-")+1, input.lastIndexOf("-"));
+    // var day = input.substring(input.lastIndexOf("-")+1, input.length);
+    var joinedDate = month + "/" + day + "/" + year;
+    console.log(joinedDate);
+    console.log(dateEntered); //e.g. Fri Nov 13 2015 00:00:00 GMT+0000 (GMT Standard Time)
+    var date1 = new Date("09/23/2022");
+var date2 = new Date(joinedDate);
+  
+// To calculate the time difference of two dates
+var Difference_In_Time = date2.getTime() - date1.getTime();
+  
+// To calculate the no. of days between two dates
+var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+if((Difference_In_Days/7) % 2 == 0) { // start if statement 2
+    alert("Work In Office");
+} // end if statement 2
+else { // start else statement 2
+    alert("Work From Home");
+} // end else statement 2
+
+    } // end else statement 1
+});
+
+   
+    </script>
+    
